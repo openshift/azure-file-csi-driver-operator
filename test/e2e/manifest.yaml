@@ -12,7 +12,7 @@ DriverInfo:
     multipods: true
     RWX: true
     # TODO: Re-enable fsGroup tests: https://bugzilla.redhat.com/show_bug.cgi?id=2019128
-    fsGroup: false
+    fsGroup: true
     topology: false
     controllerExpansion: true
     nodeExpansion: true

@@ -6,7 +6,7 @@ metadata:
     # Used to determine if a CSI driver was created by OCP or by 3rd party operator / helm / yaml files.
     csi.openshift.io/managed: "true"
 spec:
-  fsGroupPolicy: "None"
+  fsGroupPolicy: "File"
   attachRequired: false
   podInfoOnMount: true
   volumeLifecycleModes:
