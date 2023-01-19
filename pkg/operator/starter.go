@@ -72,7 +72,6 @@ func RunOperator(ctx context.Context, controllerConfig *controllercmd.Controller
 		kubeInformersForNamespaces,
 		assets.ReadFile,
 		[]string{
-			"storageclass.yaml",
 			"controller_sa.yaml",
 			"controller_pdb.yaml",
 			"node_sa.yaml",
@@ -140,6 +139,12 @@ func RunOperator(ctx context.Context, controllerConfig *controllercmd.Controller
 		dynamicClient,
 		assets.ReadFile,
 		"servicemonitor.yaml",
+	).WithStorageClassController(
+		"AzureFileStorageClassController",
+		assets.ReadFile,
+		"storageclass.yaml",
+		kubeClient,
+		kubeInformersForNamespaces.InformersFor(""),
 	)
 
 	klog.Info("Starting the informers")
