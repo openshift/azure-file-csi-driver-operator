@@ -66,6 +66,7 @@ spec:
                   name: azure-disk-credentials
                   key: azure_federated_token_file
                   optional: true
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - name: host-cloud-config
               mountPath: /etc/cloud-config
@@ -97,6 +98,7 @@ spec:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: spec.nodeName
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - mountPath: /csi
               name: socket-dir
@@ -158,6 +160,7 @@ spec:
               value: /csi/csi.sock
             - name: DRIVER_REG_SOCK_PATH
               value: /var/lib/kubelet/plugins/file.csi.azure.com/csi.sock
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - name: socket-dir
               mountPath: /csi
@@ -175,6 +178,7 @@ spec:
             - --probe-timeout=3s
             - --health-port=10302
             - --v=${LOG_LEVEL}
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - name: socket-dir
               mountPath: /csi

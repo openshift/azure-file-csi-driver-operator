@@ -78,6 +78,7 @@ spec:
                   name: azure-disk-credentials
                   key: azure_federated_token_file
                   optional: true
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - name: host-cloud-config
               mountPath: /etc/cloud-config
@@ -118,6 +119,7 @@ spec:
             timeoutSeconds: 3
             periodSeconds: 10
             failureThreshold: 5
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
@@ -157,6 +159,7 @@ spec:
             requests:
               memory: 20Mi
               cpu: 10m
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
           - mountPath: /etc/tls/private
             name: metrics-serving-cert
@@ -179,6 +182,7 @@ spec:
           volumeMounts:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
+          terminationMessagePolicy: FallbackToLogsOnError
           resources:
             requests:
               memory: 50Mi
@@ -206,6 +210,7 @@ spec:
             requests:
               memory: 20Mi
               cpu: 10m
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
           - mountPath: /etc/tls/private
             name: metrics-serving-cert
@@ -224,6 +229,7 @@ spec:
           env:
             - name: ADDRESS
               value: /var/lib/csi/sockets/pluginproxy/csi.sock
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
@@ -252,6 +258,7 @@ spec:
             requests:
               memory: 20Mi
               cpu: 10m
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
           - mountPath: /etc/tls/private
             name: metrics-serving-cert
@@ -270,6 +277,7 @@ spec:
           env:
             - name: ADDRESS
               value: /var/lib/csi/sockets/pluginproxy/csi.sock
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
@@ -298,6 +306,7 @@ spec:
             requests:
               memory: 20Mi
               cpu: 10m
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
           - mountPath: /etc/tls/private
             name: metrics-serving-cert
@@ -312,6 +321,7 @@ spec:
           env:
             - name: ADDRESS
               value: /var/lib/csi/sockets/pluginproxy/csi.sock
+          terminationMessagePolicy: FallbackToLogsOnError
           volumeMounts:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
